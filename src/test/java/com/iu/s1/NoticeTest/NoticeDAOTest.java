@@ -50,7 +50,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 	
 	//delete
-	@Test
+	//@Test
 	public void deleteTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(8);
