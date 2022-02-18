@@ -7,6 +7,7 @@ public class NoticeDTO {
 	private String contents;
 	private String wrier;
 	private String regdate;
+	private Integer hit;
 	
 	public Integer getNum() {
 		return num;
@@ -38,4 +39,12 @@ public class NoticeDTO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	public Integer getHit() {
+		return hit;
+	}
+	public void setHit(Integer hit) {
+		this.hit = hit;
+	}
+	
+	
 }

@@ -36,6 +36,7 @@ public class NoticeDAOTest extends MyJunitTest {
 		noticeDTO.setContents("c2");
 		noticeDTO.setWrier("w1");
 		noticeDTO.setRegdate("220218");
+		noticeDTO.setHit(0);
 		int result = noticeDAO.add(noticeDTO);
 		assertEquals(1, result);
 	}
