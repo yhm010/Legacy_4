@@ -5,8 +5,8 @@
 
 <mapper namespace="com.iu.s1.bankbook.BankBookDAO">
 
-	<select id="detail" parameterType="long" resultType="com.iu.s1.bankbook.BankBookDTO">
-		SELECT * FROM BANKBOOK WHERE BOOKNUMBER =#{num}
+	<select id="detail" parameterType="BankBookDTO" resultType="com.iu.s1.bankbook.BankBookDTO">
+		SELECT * FROM BANKBOOK WHERE BOOKNUMBER =#{bookNumber}
 	</select>
 
 	<select id="list" resultType="BankBookDTO">

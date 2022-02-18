@@ -16,6 +16,12 @@ public class BankBookservice {
 	
 	// 메서드는 DAO의 메서드와 거의 동일
 	
+	//detail
+	public BankBookDTO detail(BankBookDTO bankBookDTO) throws Exception{
+		
+		return bankBookDAO.detail(bankBookDTO);
+	}
+	
 	//list
 	public List<BankBookDTO> list() throws Exception {
 		
@@ -24,6 +30,11 @@ public class BankBookservice {
 		List<BankBookDTO> ar = bankBookDAO.list();
 		
 		return ar;
+	}
+	
+	//add
+	public int add(BankBookDTO bankBookDTO) throws Exception{
+		return bankBookDAO.add(bankBookDTO);
 	}
 	
 }

@@ -14,8 +14,8 @@ public class BankBookDAO {
 	private final String NAMESPACE="com.iu.s1.bankbook.BankBookDAO.";
 	
 	//detail
-	public BankBookDTO detail(Long num) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"detail", num);
+	public BankBookDTO detail(BankBookDTO bankBookDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"detail", bankBookDTO);
 	}
 	
 	//list
@@ -31,4 +31,5 @@ public class BankBookDAO {
 	public int delete(BankBookDTO bankBookDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"delete", bankBookDTO);
 	} 
+	
 }

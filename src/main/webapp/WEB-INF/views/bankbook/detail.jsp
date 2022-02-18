@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>BankBook Detail page</h1>
+	<h3>Name : ${dto.bookName}</h3>
+	<h3>Contents : ${dto.bookContents}</h3>
+	<h3>bookRate : ${dto.bookRate}</h3>
+	<h3>bookSale : ${dto.bookSale}</h3>
+	
+	<a href="./list">List</a>
+	
+</body>
+</html>
