@@ -36,7 +36,7 @@ public class NoticeDAOTest extends MyJunitTest {
 		noticeDTO.setContents("c2");
 		noticeDTO.setWrier("w1");
 		noticeDTO.setRegdate("220218");
-		noticeDTO.setHit(0);
+		noticeDTO.setHit(1);
 		int result = noticeDAO.add(noticeDTO);
 		assertEquals(1, result);
 	}
@@ -45,7 +45,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	@Test
 	public void detailTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(6);
+		noticeDTO.setNum(41);
 		noticeDTO = noticeDAO.detail(noticeDTO);
 		assertNotNull(noticeDTO);
 	}
@@ -54,7 +54,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	@Test
 	public void deleteTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(7);
+		noticeDTO.setNum(22);
 		int result = noticeDAO.delete(noticeDTO);
 		assertEquals(1, result);
 	}
