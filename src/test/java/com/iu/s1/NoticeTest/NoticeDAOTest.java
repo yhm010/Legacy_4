@@ -29,7 +29,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 
 	// add
-	//@Test
+	@Test
 	public void addTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setTitle("t2");
@@ -41,7 +41,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 
 	// detail
-	//@Test
+	@Test
 	public void detailTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(6);
@@ -50,12 +50,12 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 	
 	//delete
-	//@Test
+	@Test
 	public void deleteTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(8);
+		noticeDTO.setNum(7);
 		int result = noticeDAO.delete(noticeDTO);
-		assertEquals(8, result);
+		assertEquals(1, result);
 	}
 
 }
