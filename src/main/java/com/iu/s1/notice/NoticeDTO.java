@@ -7,7 +7,7 @@ public class NoticeDTO {
 	private long num;	
 	private String title;
 	private String contents;
-	private String wrier;
+	private String writer;
 	private Date regdate;
 	private long hit;
 	
@@ -29,11 +29,11 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getWrier() {
-		return wrier;
+	public String getWriter() {
+		return writer;
 	}
-	public void setWrier(String wrier) {
-		this.wrier = wrier;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -47,6 +47,8 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
+	
+	
 	
 	
 	

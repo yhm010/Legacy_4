@@ -22,4 +22,9 @@ public class NoticeService {
 	public NoticeDTO deteil(NoticeDTO noticeDTO) throws Exception{
 		return noticeDAO.detail(noticeDTO);
 	}
+	
+	//add (글작성)
+	public void add() throws Exception{
+		
+	}
 }

@@ -23,10 +23,10 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${list}" var="dto">
-			<td>${dto.num}</td>
-			<td><a href="./deteil?num=${dto.num}">${dto.title}</a></td>
+			<td><a href="./deteil?num=${dto.num}">${dto.num}</a></td>
+			<td>${dto.title}</td>
 			<td>${dto.contents}</td>
-			<td>${dto.wrier}</td>
+			<td>${dto.writer}</td>
 			<td>${dto.regdate}</td>
 			<td>${dto.hit}</td>
 			</c:forEach>
