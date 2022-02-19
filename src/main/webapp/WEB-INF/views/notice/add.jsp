@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>notice add page</h1>
+	<h1>Notice add Page</h1>
 	
 	<form action="./add" method="post">
 	Title : <input type="text" name="title">
