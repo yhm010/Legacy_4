@@ -24,7 +24,6 @@ public class NoticeDAO {
 	}
 
 	// detail
-	
 	public NoticeDTO detail(NoticeDTO noticeDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"detail", noticeDTO);
 	}
