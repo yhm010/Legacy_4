@@ -1,18 +1,19 @@
 package com.iu.s1.notice;
 
+import java.sql.Date;
+
 public class NoticeDTO {
 
-	private Integer num;	
+	private Long num;	
 	private String title;
 	private String contents;
 	private String wrier;
-	private String regdate;
-	private Integer hit;
-	
-	public Integer getNum() {
+	private Date regdate;
+	private Long hit;
+	public Long getNum() {
 		return num;
 	}
-	public void setNum(Integer num) {
+	public void setNum(Long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -33,16 +34,16 @@ public class NoticeDTO {
 	public void setWrier(String wrier) {
 		this.wrier = wrier;
 	}
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public Integer getHit() {
+	public Long getHit() {
 		return hit;
 	}
-	public void setHit(Integer hit) {
+	public void setHit(Long hit) {
 		this.hit = hit;
 	}
 	

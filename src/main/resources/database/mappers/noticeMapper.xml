@@ -15,7 +15,7 @@
 	
 	<insert id="add" parameterType="com.iu.s1.notice.NoticeDTO">
 		INSERT INTO NOTICE
-VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{wrier}, #{regdate}, #{hit})
+		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, #{hit})
 	</insert>
 	
 	<delete id="delete" parameterType="com.iu.s1.notice.NoticeDTO">
