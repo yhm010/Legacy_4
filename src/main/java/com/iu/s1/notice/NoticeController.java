@@ -32,7 +32,21 @@ public class NoticeController {
 		mv.addObject("dto", noticeDTO);
 		mv.setViewName("notice/deteil");
 		return mv;
-		
+	}
+	//DB에 insert
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public ModelAndView add(NoticeDTO noticeDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.add(noticeDTO);
+		mv.setViewName("redirect:./list");
+		return mv;
+	}
+	//insert form 이동
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public ModelAndView add() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("notice/add");
+		return mv;
 	}
 	
 
