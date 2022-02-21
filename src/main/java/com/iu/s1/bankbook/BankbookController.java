@@ -47,7 +47,14 @@ public class BankbookController {
 	//insert form 이동
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public void add()throws Exception{
+	}
 	
+	//delete
+	@RequestMapping("delete")
+	public String delete(BankBookDTO bankBookDTO) throws Exception{
+		int result = bankBookservice.delete(bankBookDTO);
+		return "redirect:./list";
+		
 	}
 
 }
