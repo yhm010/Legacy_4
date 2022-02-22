@@ -23,7 +23,7 @@ public class MemberDAOTest extends MyJunitTest{
 		int result = memberDAO.join(memberDTO); 
 		assertEquals(1, result);
 	}
-	@Test
+	//@Test
 	public void loginTest() throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("ID1");
@@ -32,5 +32,12 @@ public class MemberDAOTest extends MyJunitTest{
 		assertNotNull(memberDTO);
 	}
 
+	@Test
+	public void mypageTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id3");
+		memberDTO = memberDAO.mypage(memberDTO);
+		assertNotNull(memberDTO);
+	}
 	
 }
