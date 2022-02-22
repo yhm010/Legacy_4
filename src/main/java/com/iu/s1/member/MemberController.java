@@ -39,7 +39,7 @@ public class MemberController {
 	//logout
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
-		session.invalidate();
+		session.invalidate(); //세션 무효화시킴
 		return "redirect:../";
 	}
 	
@@ -75,7 +75,7 @@ public class MemberController {
 			//cookie.setMaxAge(1);
 		}else {
 			Cookie cookie = new Cookie("remember", "");
-			cookie.setMaxAge(0);
+			cookie.setMaxAge(0); //쿠키삭제
 			response.addCookie(cookie);
 		}
 		
