@@ -62,3 +62,7 @@ td{
 .a{
     text-align: center;
 }
+
+.icon{
+	vertical-align: text-bottom;
+}

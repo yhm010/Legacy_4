@@ -6,15 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<c:import url="./template/header_css.jsp"></c:import>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-	
+<c:import url="./template/header_css.jsp"></c:import>
+
+	<style type="text/css">
+	</style>
+
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 	<h1>index page</h1>
-	<h3>${member.name}님환영합니다.</h3>
+	<h3>${member.name}님환영합니다.
+		<span class="material-icons-outlined"> favorite_border </span>
+	</h3>
 
 	<div>
 		<!-- 로그인 후 -->
