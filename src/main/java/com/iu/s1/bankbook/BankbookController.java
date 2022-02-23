@@ -15,6 +15,25 @@ public class BankbookController {
 
 	@Autowired
 	private BankBookservice bankBookservice;
+	
+	//update
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(BankBookDTO bankBookDTO) throws Exception{
+//		System.out.println(bankBookDTO.getBookNumber());
+//		System.out.println(bankBookDTO.getBookName());
+//		System.out.println(bankBookDTO.getBookRate());
+//		System.out.println(bankBookDTO.getBookContents());
+//		System.out.println(bankBookDTO.getBookSale());
+		int result = bankBookservice.update(bankBookDTO);
+		return "redirect:./list";
+		
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public void update(BankBookDTO bankBookDTO, Model model) throws Exception{
+		bankBookDTO = bankBookservice.detail(bankBookDTO);
+		model.addAttribute("dto",bankBookDTO);
+	}
 
 	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
