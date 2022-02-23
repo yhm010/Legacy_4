@@ -17,7 +17,8 @@
 	<h3>RegDate : ${dto.regdate}</h3>
 	<h3>Hit : ${dto.hit} </h3>
 	
-	<a href="./list">ListPage</a>
+	<a href="./list">List</a>
+	<a href="./update?num=${dto.num}">Update</a>
 
 </body>
 </html>

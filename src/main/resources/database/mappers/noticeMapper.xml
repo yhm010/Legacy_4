@@ -15,11 +15,16 @@
 	
 	<insert id="add" parameterType="NoticeDTO">
 		INSERT INTO NOTICE
-		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, #{hit})
+		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents})
 	</insert>
 	
 	<delete id="delete" parameterType="NoticeDTO">
 		DELETE NOTICE WHERE NUM = #{num}
 	</delete>
+	
+	<update id="update" parameterType="NoticeDTO">
+	UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents}
+	WHERE NUM=#{num}
+	</update>
 	
 </mapper>

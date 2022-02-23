@@ -50,5 +50,19 @@ public class NoticeController {
 		return mv;
 	}
 	
+	//update 폼으로 이동
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public void update(NoticeDTO noticeDTO, Model model)throws Exception{
+		noticeDTO = noticeService.deteil(noticeDTO);
+		model.addAttribute("dto", noticeDTO);
+	}
+	//DB에 update 처리
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(NoticeDTO noticeDTO)throws Exception{
+		System.out.println(noticeDTO.getContents());
+		System.out.println(noticeDTO.getNum());
+		int result = noticeService.update(noticeDTO);
+		return "redirect:./list";
+	}
 
 }

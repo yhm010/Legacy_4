@@ -1,5 +1,6 @@
 package com.iu.s1.NoticeTest;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -56,6 +57,15 @@ public class NoticeDAOTest extends MyJunitTest {
 		noticeDTO.setNum(22L);
 		int result = noticeDAO.delete(noticeDTO);
 		assertEquals(1, result);
+	}
+	
+	@Test
+	public void updateTest() throws Exception{
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setTitle("title1");
+		noticeDTO.setContents("contents1");
+		int result = noticeDAO.update(noticeDTO);
+		assertNotNull(noticeDTO);
 	}
 
 }

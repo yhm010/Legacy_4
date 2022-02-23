@@ -26,6 +26,10 @@ public class NoticeService {
 	//add
 	public int add(NoticeDTO noticeDTO) throws Exception{
 		return noticeDAO.add(noticeDTO);
-		
+	}
+	
+	//update
+	public int update(NoticeDTO noticeDTO) throws Exception{
+		return noticeDAO.update(noticeDTO);
 	}
 }
