@@ -18,7 +18,7 @@
 	<h3>Hit : ${dto.hit} </h3>
 	
 	<a href="./list">List</a>
-	<a href="./update?num=${dto.num}">Update</a>
+	<a href="./update?num=${dto.num}">Updatee</a>
 
 </body>
 </html>
