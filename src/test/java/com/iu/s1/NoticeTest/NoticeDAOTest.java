@@ -30,15 +30,15 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 
 	// add
-	//@Test
+	@Test
 	public void addTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("t2");
-		noticeDTO.setContents("c2");
+		noticeDTO.setTitle("제목");
+		noticeDTO.setContents("aa1");
 		noticeDTO.setWriter("w1");
 		noticeDTO.setHit(1L);
 		int result = noticeDAO.add(noticeDTO);
-		assertEquals(1, result);
+		assertEquals(1, result); 
 	}
 
 	// detail

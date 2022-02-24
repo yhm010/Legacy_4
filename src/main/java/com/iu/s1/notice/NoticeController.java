@@ -38,6 +38,7 @@ public class NoticeController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ModelAndView add(NoticeDTO noticeDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		//System.out.println();
 		int result = noticeService.add(noticeDTO);
 		mv.setViewName("redirect:./list");
 		return mv;

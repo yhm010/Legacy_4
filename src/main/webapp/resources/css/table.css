@@ -1,2 +1,45 @@
 @charset "UTF-8";
 /* notice, bankbook table에 적용할 css 2개 */
+
+table1{
+    width: 60%;
+    border: gray 3px dotted;
+    margin: 0 auto;
+}
+
+th1{
+	height: 30px;
+    border: gray 3px dotted;
+    background-color: gray;
+}
+
+a1{
+    text-align: center;
+}
+
+td1{
+    height: 50px;
+    border: black none;
+    font-size: 12px;
+}
+
+table2{
+    width: 60%;
+    border: pink 3px double;
+    margin: 0 auto;
+}
+
+th2{
+	height: 30px;
+    border: pink 3px dotted;
+    background-color: pink;
+}
+
+a2{
+    text-align: center;
+}
+
+td2{
+    height: 50px;
+    border: black none;
+    font-size: 12px;
