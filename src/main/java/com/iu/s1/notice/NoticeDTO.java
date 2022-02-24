@@ -1,6 +1,6 @@
 package com.iu.s1.notice;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NoticeDTO {
 
@@ -11,7 +11,7 @@ public class NoticeDTO {
 	private Date regdate;
 	private long hit;
 	
-	public long getNum() {
+	public long getNum() { 
 		return num;
 	}
 	public void setNum(long num) {
@@ -47,6 +47,8 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
+	
+	
 	
 	
 	

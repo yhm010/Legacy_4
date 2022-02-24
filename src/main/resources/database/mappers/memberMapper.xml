@@ -19,6 +19,11 @@
 	SELECT id, name, phone, email FROM MEMBER
 	WHERE ID=#{id}
 	</select>
+	
+	<update id="update" parameterType="memberDTO">
+	UPDATE MEMBER SET NAME=#{name}, PHONE=#{phone}, EMAIL=#{email}
+	WHERE ID=#{id}
+	</update>
 
 </mapper>
 
