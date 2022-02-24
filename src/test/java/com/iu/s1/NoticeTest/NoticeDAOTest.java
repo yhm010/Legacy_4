@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.iu.s1.MyJunitTest;
 import com.iu.s1.notice.NoticeDAO;
 import com.iu.s1.notice.NoticeDTO;
+import com.iu.s1.util.Pager;
 
 public class NoticeDAOTest extends MyJunitTest {
 
@@ -23,22 +24,29 @@ public class NoticeDAOTest extends MyJunitTest {
 	}
 
 	// list
-	//@Test
-	public void listTest() throws Exception {
-		List<NoticeDTO> ar = noticeDAO.list();
-		assertNotEquals(0, ar.size());
-	}
+		@Test
+		public void listTest() throws Exception {
+			Pager pager = new Pager();
+			pager.setPerPage(5L);
+			pager.makeRow();
+			List<NoticeDTO> ar = noticeDAO.list(pager);
+			System.out.println(ar.get(0).getNum());
+			System.out.println(ar.get(4 ).getNum());
+			assertEquals(5, ar.size());
+		}
 
 	// add
-	@Test
+	//@Test
 	public void addTest() throws Exception {
+		for(int i=0; i<200; i++) {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("제목");
-		noticeDTO.setContents("aa1");
-		noticeDTO.setWriter("w1");
-		noticeDTO.setHit(1L);
+		noticeDTO.setTitle("title"+i);
+		noticeDTO.setContents("contents"+i);
+		noticeDTO.setWriter("writer"+i);
 		int result = noticeDAO.add(noticeDTO);
-		assertEquals(1, result); 
+		}
+		System.out.println("인서트 성공");
+		//assertEquals(1, result); 
 	}
 
 	// detail
@@ -59,7 +67,7 @@ public class NoticeDAOTest extends MyJunitTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void updateTest() throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setTitle("title1");

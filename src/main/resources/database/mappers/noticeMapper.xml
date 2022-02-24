@@ -5,8 +5,15 @@
     
 <mapper namespace="com.iu.s1.notice.NoticeDAO">
 
-	<select id="list" resultType="NoticeDTO">
-		SELECT * FROM NOTICE
+	<select id="list" parameterType="Pager" resultType="NoticeDTO">
+		SELECT * FROM
+		(SELECT ROWNUM R, B.* FROM
+		(SELECT * FROM NOTICE WHERE NUM>0 ORDER BY NUM DESC) B)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<select id="total" resultType="Long">
+		SELECT COUNT(NUM) FROM NOTICE
 	</select>
 	
 	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO">
