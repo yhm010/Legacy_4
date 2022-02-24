@@ -18,6 +18,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th>상품번호</th>
 				<th>상품이름</th>
 				<th>이자율</th>
 				<th>판매여부</th>
@@ -26,6 +27,7 @@
 		<tbody>
 			<c:forEach items="${list}" var="book">	
 			<tr>
+					<td>${book.bookNumber}</td>
 					<td><a href="./detail?bookNumber=${book.bookNumber}">${book.bookName}</a></td>
 					<td>${book.bookRate}</td>
 					<td>${book.bookSale}</td>
@@ -34,8 +36,24 @@
 				
 		</tbody>
 	</table>
-	
-	<a href="./add">ADD</a>
 
+	
+	<div>
+	
+	<c:if test="${pager.pre}">
+		<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
+	</c:if>
+	
+	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+		<a href="./list?page=${i}">${i}</a>
+		</c:forEach>
+		
+		<c:if test="${pager.next}">
+			<a href="./list?page=${pager.lastNum+1}">NEXT</a>
+		</c:if>
+		
+		</div>
+		<a href="./add">ADD</a>
+		
 </body>
 </html>
