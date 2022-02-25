@@ -55,16 +55,17 @@ public class Pager {
 			this.pre = true;
 		}
 
-		// 8. 현재 블럭이 2,3,4...
+		// 현재 블럭이 2,3,4...
 		this.next = false;
 		if (totalBlock > curBlock) {
 			this.next = true;
 		}
 
-		// 9. 현재 블럭이 마지막 블럭번호와 같다면
+		// 8. 현재 블럭이 마지막 블럭번호와 같다면
 		if (curBlock == totalBlock) {
 			this.lastNum = totalPage;
 		}
+		
 	}
 
 	public Long getPerPage() {

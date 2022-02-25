@@ -27,6 +27,10 @@ public class MemberController {
 	//update (폼용)
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public void update(MemberDTO memberDTO, Model model) throws Exception{
+		System.out.println(memberDTO.getName());
+		System.out.println(memberDTO.getId());
+		System.out.println(memberDTO.getPhone());
+		System.out.println(memberDTO.getEmail());
 		memberDTO = memberService.mypage(memberDTO);
 		model.addAttribute("dto", memberDTO);
 	}
@@ -35,8 +39,8 @@ public class MemberController {
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(MemberDTO memberDTO) throws Exception{
 		int result = memberService.update(memberDTO);
-		return "redirect:./list";
-	}
+		return "redirect:./mypage"; 
+	} 
 	
 	//mypage
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
