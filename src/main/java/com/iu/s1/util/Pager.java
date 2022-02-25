@@ -75,7 +75,7 @@ public class Pager {
 		// 7. 이전, 다음 블럭 유무
 		this.pre=false;
 		if(curBlock>1) {
-		//8. 현재 블럭이 2,3,4...
+		//현재 블럭이 2,3,4...
 			this.pre=true;
 		}
 		
@@ -83,9 +83,14 @@ public class Pager {
 		if(totalBlock > curBlock) {
 			this.next= true;
 		}
-		// 9. 현재 블럭이 마지막 블럭번호와 같다면
+		// 8. 현재 블럭이 마지막 블럭번호와 같다면
 		if(curBlock==totalBlock) {
 			this.lastNum=totalpage;
+		}
+		
+		//9. 검색결과가 없어서 Total이 0일때
+		if(totalCount==0) {
+			this.lastNum=1L;
 		}
 
 	}
