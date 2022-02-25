@@ -40,7 +40,7 @@ public class BankBookDAO {
 	} 
 	
 	//total
-	public Long total() throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"total");
+	public Long total(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"total", pager);
 	}
 }

@@ -10,6 +10,11 @@ public class Pager {
 	private Long startRow;
 	// 끝번호
 	private Long lastRow;
+	
+	//------검색에서 사용하는 변수 -----
+	private String search;
+	private String kind;
+	
 
 	// -----JSP 사용 변수-----
 	private Long startNum;
@@ -23,6 +28,7 @@ public class Pager {
 		this.lastRow = this.getPage() * this.getPerPage();
 	}
 
+	
 	public void makeNum(Long totalCount) {
 		// 1. 전체 row 갯수 구하기
 		// Long totalCount = 409L;
@@ -152,6 +158,28 @@ public class Pager {
 
 	public void setPage(Long page) {
 		this.page = page;
+	}
+
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		//this.search="%"+this.search+"%";
+		return search;
+	
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 
 	
