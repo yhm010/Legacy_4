@@ -9,13 +9,14 @@
 <body>
 	<h1>Member Update Page</h1>
 	
-	<form action="./update" method="post"></form>
+	<form action="./update" method="post">
 	ID :<input type="test" readonly="readonly" name="num" value="${dto.id}">
 	Name : <input type="text" name="name" value="${dto.name}">
 	Phone :<input type="number" name="phone" value="${dto.phone}">
 	Email : <input type="email" name="email" value="${dto.email}">
 	
 	<input type="submit" value="update">
+	</form>
 
 </body>
 </html>
