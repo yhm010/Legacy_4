@@ -7,13 +7,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
+<link href="../resources/css/table.css" rel="styleSheet" />
+<link href="../resources/css/list.css" rel="styleSheet" />
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<div class="table-container">
 	<h1>Notice List Page</h1>
+	<!-- 검색창 -->
+	<div>
+		<form action="./list" method="get">
+			<fieldset>
+			<select>
+			<option value="title">제목</option>
+			<option value="contents">내용</option>
+			<option value="writer">작성자</option>
+			</select>
+				<input type="text" name="search">
+				<button type="submit">검색</button>
+			</fieldset>
+		</form>
+	</div>
 
 	<table>
 		<thead>
+		<table class="table-basic">
 			<th>글 번호</th>
 			<th>글 제목</th>
 			<th>글 내용</th>
@@ -34,19 +52,19 @@
 		</c:forEach>
 	</table>
 	<div>
-	<c:if test="${pager.pre}">
-		<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
-	</c:if>
-	
+		<c:if test="${pager.pre}">
+			<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
+		</c:if>
+
 		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1"
 			var="i">
 			<a href="./list?page=${i}">${i}</a>
 		</c:forEach>
-		
+
 		<c:if test="${pager.next}">
 			<a href="./list?page=${pager.lastNum+1}">NEXT</a>
 		</c:if>
 	</div>
-			<a href="./add">ADD</a>
+	<a href="./add">ADD</a>
 </body>
 </html>

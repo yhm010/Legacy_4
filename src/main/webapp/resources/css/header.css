@@ -30,39 +30,6 @@
 .nav_sub a{
     color: white;
 }
-.header_nav{
-    align-content: center;
-    display: flex;
-    margin: 50px;
-    font-size: 30px;
-    justify-content: center;
-}
-
-table{
-    width: 60%;
-    border: black 3px solid;
-    border-spacing: 0px;
-    border-collapse: collapse;
-    margin: 0 auto;
-
-
-    
-}
-th{
-    height: 30px;
-    border: black 3px solid;
-    background-color: black;
-    color: white;
-    font-weight: lighter;
-}
-td{
-    height: 50px;
-    border: black none;
-    font-size: 12px;
-}
-.a{
-    text-align: center;
-}
 
 .icon{
 	vertical-align: text-bottom;
