@@ -10,6 +10,12 @@ public class Pager {
 	private Long startRow;
 	// 끝번호
 	private Long lastRow;
+	
+	// ----검색 사용 번수---
+	private String search;
+	private String kind;
+	
+	
 	// ----JSP 사용변수----
 	private Long startNum;
 	private Long lastNum;
@@ -27,7 +33,7 @@ public class Pager {
 		//Long totalCount = 410L;
 		// 2. 전체 페이지 갯수 구하기
 		Long totalPage = totalCount / this.getPerPage();
-		if (totalCount % this.getPage() != 0) {
+		if (totalCount % this.getPerPage() != 0) {
 			totalPage++;
 		}
 		// 3. 블럭당 갯수
@@ -35,7 +41,7 @@ public class Pager {
 
 		// 4. 전체 블럭의 갯수
 		Long totalBlock = totalPage / perBlock;
-		if (totalPage % totalBlock != 0) {
+		if (totalPage % perBlock != 0) {
 			totalBlock++;
 		}
 
@@ -64,6 +70,11 @@ public class Pager {
 		// 8. 현재 블럭이 마지막 블럭번호와 같다면
 		if (curBlock == totalBlock) {
 			this.lastNum = totalPage;
+		}
+		
+		//9. 검색결과가 없어서 Total이 0일때
+		if(totalCount==0) {
+			this.lastNum=1L;
 		}
 		
 	}
@@ -136,6 +147,26 @@ public class Pager {
 
 	public void setNext(boolean next) {
 		this.next = next;
+	}
+
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		//this.search="%"+this.search+"%";
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 
 }

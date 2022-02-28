@@ -18,12 +18,12 @@
 	<div>
 		<form action="./list" method="get">
 			<fieldset>
-			<select>
-			<option value="title">제목</option>
-			<option value="contents">내용</option>
-			<option value="writer">작성자</option>
-			</select>
-				<input type="text" name="search">
+			<select name="kind">
+			<option value="col1">제목</option>
+			<option value="col2">내용</option>
+			<option value="col3">작성자</option>
+			</select> 
+				<input type="text" name="search" value="${pager.search}">
 				<button type="submit">검색</button>
 			</fieldset>
 		</form>
@@ -42,6 +42,7 @@
 		</thead>
 		<c:forEach items="${list}" var="dto">
 			<tr>
+				<td>${dto.num}</td>
 				<td><a href="./deteil?num=${dto.num}">${dto.num}</a></td>
 				<td>${dto.title}</td>
 				<td>${dto.contents}</td>
@@ -58,7 +59,7 @@
 
 		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1"
 			var="i">
-			<a href="./list?page=${i}">${i}</a>
+			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 		</c:forEach>
 
 		<c:if test="${pager.next}">
