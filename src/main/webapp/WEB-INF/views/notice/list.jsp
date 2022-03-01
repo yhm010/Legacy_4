@@ -42,7 +42,7 @@
 		</thead>
 		<c:forEach items="${list}" var="dto">
 			<tr>
-				<td>${dto.num}</td>
+
 				<td><a href="./deteil?num=${dto.num}">${dto.num}</a></td>
 				<td>${dto.title}</td>
 				<td>${dto.contents}</td>
