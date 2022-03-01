@@ -70,5 +70,11 @@ public class NoticeController {
 		int result = noticeService.update(noticeDTO);
 		return "redirect:./list";
 	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String delete(NoticeDTO noticeDTO) throws Exception{
+		int result = noticeService.delete(noticeDTO);
+		return "redirect:./list";
+	}
 
 }

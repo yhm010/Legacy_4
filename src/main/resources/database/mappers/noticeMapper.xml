@@ -64,8 +64,7 @@
 	</insert>
 
 	<delete id="delete" parameterType="NoticeDTO">
-		DELETE NOTICE WHERE NUM =
-		#{num}
+		DELETE NOTICE WHERE NUM =#{num}
 	</delete>
 
 	<update id="update" parameterType="NoticeDTO">
