@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="./template/header_css.jsp"></c:import>
-
 	<style type="text/css">
 	</style>
 
@@ -15,6 +14,7 @@
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 	<h1>index page</h1>
+	
 	<h3>${member.name}님환영합니다.
 		<span class="material-icons-outlined"> favorite_border </span>
 	</h3>
