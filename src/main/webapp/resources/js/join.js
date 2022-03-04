@@ -11,25 +11,45 @@ const idResult = document.getElementById("idResult");
 const frm = document.getElementById("frm");
 const btn = document.getElementById("btn");
 
-let idCheck = false;
+const name = document.getElementById("name");
+const phone = document.getElementById("phone");
+const email = document.getElementById("email");
+
+let idCheck = false; // 체크 O : T 체크 X : F
 let pwCheck = false;
+let nameCheck = false;
+let phoneCheck = false;
+let emailCheck = false;
+
+pw.addEventListener("change", function(){
+    pwCheck=false;
+    pw2.value='';
+    pwResult2.innerHTML='';
+    pw2.focus();
+});
 
 btn.addEventListener("click", function(){
-    frm.submit();
-})
+    
+    if(idCheck&&pwCheck &&nameCheck && phoneCheck && emailCheck){
+        frm.submit();
+    }else{
+        alert('필수요건을 확인 하세요');
+    }
+});
 
 id.onblur=function(){
   // console.log("id blur")
-  idCheck = false;
+  
   let v = id.value;
 
     if(v==''){ //v.length == 0
      // console.log('비어있다')
      idResult.innerHTML = '필수입력'
-     idCheck=true;
-    }//else{
-    // console.log('비어있지 않다')
-    // }
+     idCheck=false;
+    }else{
+    console.log('비어있지 않다')
+    idCheck=true;
+    }
     
  }
 
@@ -43,14 +63,41 @@ pw.addEventListener("keyup", function(){
 });
 
 pw2.addEventListener("blur", function(){
-    pwCheck = true;
+    
     let v1 = pw.value;
     let v2 = pw2.value;
     let message = "비밀번호 불일치";
 
     if(v1 == v2){
         message = "비밀번호 일치"
-        pwCheck = false;
+        pwCheck = true;
+    }else {
+        pwCheck=false;
     }
     pwResult2.innerHTML=message;
 });
+
+name.onblur=function(){
+   // console.log("name blur")
+    if(name.value==''){
+    nameCheck=false;
+}else{
+    nameCheck=true;
+}
+};
+
+phone.onblur=function(){
+    if(phone.value==''){
+    phoneCheck=false;
+}else{
+    phoneCheck=true;
+}
+};
+
+email.onblur=function(){
+    if(email.value==''){
+   emailCheck=false;
+}else{
+    emailCheck=true;
+}
+};

@@ -31,17 +31,20 @@
 
 			<fieldset>
 				<legend>Name</legend>
-				<input type="text" name="name">
+				<input type="text" id="name" name="name">
+
 			</fieldset>
 
 			<fieldset>
 				<legend>Phone</legend>
-				<input type="number" name="phone">
+				<input type="number" id="phone" name="phone">
+				
 			</fieldset>
 
 			<fieldset>
 				<legend>Email</legend>
-				<input type="email" name="email">
+				<input type="email" id="email" name="email">
+				
 			</fieldset>
 			
 			<fieldset>
@@ -49,7 +52,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<script type="text/javascript" src="../resources/js/join.js"></script>
+	<script type="text/javascript" src="../resources/js/join2.js"></script>
 		
 </body>
 </html>
