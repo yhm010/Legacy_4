@@ -2,13 +2,18 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-<mapper namespace="com.iu.s1.board.notice.NoticeDAO">
+     
+<mapper namespace="com.iu.s1.board.qna.QnaDAO">
 
-	<select id="list" parameterType="Pager" resultType="NoticeDTO">
+	<insert id="add" parameterType="QnaDTO">
+		INSERT INTO QNA
+		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, QNA_SEQ.CURRVAL, 0, 0)
+	</insert>
+	
+	<select id="list" parameterType="Pager" resultType="QnaDTO">
 		SELECT * FROM
 		(SELECT ROWNUM R, B.* FROM
-		(SELECT * FROM NOTICE WHERE
+		(SELECT * FROM QNA WHERE
 		NUM>0
 		AND
 
@@ -31,26 +36,21 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
-	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO">
+	<select id="detail" parameterType="QnaDTO" resultType="QnaDTO">
 		SELECT * FROM NOTICE WHERE NUM = #{num}
 	</select>
 	
-	<insert id="add" parameterType="NoticeDTO">
-		INSERT INTO NOTICE
-		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0)
-	</insert>
-	
-	<delete id="delete" parameterType="NoticeDTO">
-		DELETE NOTICE WHERE NUM = #{num}
+	<delete id="delete" parameterType="QnaDTO">
+		DELETE QNA WHERE NUM = #{num}
 	</delete>
 	
-	<update id="update" parameterType="NoticeDTO">
-	UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents}
+	<update id="update" parameterType="QnaDTO">
+	UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents}
 	WHERE NUM=#{num}
 	</update>
 	
-	<select id="total" resultType="Long" parameterType="pager">
-		SELECT COUNT(NUM) FROM NOTICE
+	<select id="total" resultType="Long" parameterType="Pager">
+		SELECT COUNT(NUM) FROM QNA
 		WHERE
 		NUM>0
 		AND

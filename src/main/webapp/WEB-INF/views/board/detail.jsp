@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Notice deteil Page</h1>
+	<h1>${board} detail Page</h1>
 	
 	<h3>Num : ${dto.num}</h3>
 	<h3>Title : ${dto.title}</h3>
@@ -19,6 +19,7 @@
 	
 	<a href="./list">List</a>
 	<a href="./update?num=${dto.num}">Update</a>
+	<a href="./delete?num=${dto.num}">Delete</a>
 
 </body>
 </html>
