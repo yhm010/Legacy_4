@@ -9,6 +9,14 @@
 </head>
 <body>
 	<h1>QNA update page</h1>
+	
+	<form action="./update" method="post">
+	<input type="hidden" readonly name="num" value="${qna.num}">
+	Title : <input type="text" name="title" value="${qna.title}">
+	Contents : <textarea rows="0" cols="50" name="contents"></textarea>
+	
+	<button type="submit">ADD</button>
+	</form>
 
 </body>
 </html>

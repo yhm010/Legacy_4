@@ -8,6 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>QNA add page</h1>
+	<h1>QNA Add Page</h1>
+	
+	<form action="./add" method="post">
+	Title : <input type="text" name="title">
+	Contents : <textarea rows="0" cols="50" name="contents"></textarea>
+	Writer : <input type="text" name="writer">
+	
+	<button type="submit">ADD</button>
+	
+	</form>
 </body>
 </html>

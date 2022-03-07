@@ -14,6 +14,7 @@ public class QnaDTO {
 	private Long step;
 	private Long depth;
 	
+	
 	public Long getNum() {
 		return num;
 	}
@@ -69,4 +70,5 @@ public class QnaDTO {
 		this.depth = depth;
 	}
 	
+
 }
