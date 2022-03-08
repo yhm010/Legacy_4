@@ -20,7 +20,8 @@
 	<a href="./list">List</a>
 	<a href="./update?num=${dto.num}">Update</a>
 	<a href="./delete?num=${dto.num}">Delete</a>
+	<c:if test="${board ne 'notice'}">
 	<a href="./reply?num=${dto.num}">Reply</a>
-
+	</c:if>
 </body>
 </html>
