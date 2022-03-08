@@ -24,10 +24,10 @@ public class NoticeDAOTest extends MyJunitTest {
 
 	// list
 	//@Test
-	public void listTest() throws Exception {
-		List<NoticeDTO> ar = noticeDAO.list();
-		assertNotEquals(0, ar.size());
-	}
+//	public void listTest() throws Exception {
+//		List<NoticeDTO> ar = noticeDAO.list();
+//		assertNotEquals(0, ar.size());
+//	}
 
 	// add
 	@Test
@@ -43,12 +43,12 @@ public class NoticeDAOTest extends MyJunitTest {
 
 	// detail
 	//@Test
-	public void detailTest() throws Exception {
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(41L);
-		noticeDTO = noticeDAO.detail(noticeDTO);
-		assertNotNull(noticeDTO);
-	}
+//	public void detailTest() throws Exception {
+//		NoticeDTO noticeDTO = new NoticeDTO();
+//		noticeDTO.setNum(41L);
+//		noticeDTO = noticeDAO.detail(noticeDTO);
+//		assertNotNull(noticeDTO);
+//	}
 	
 	//delete
 	//@Test
