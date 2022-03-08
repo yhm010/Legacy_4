@@ -5,6 +5,16 @@
      
 <mapper namespace="com.iu.s1.board.qna.QnaDAO">
 
+	<insert id="reply" parameterType="QnaDTO">
+		INSERT INTO QNA
+		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, #{ref}, #{step}, #{depth})
+	</insert>
+
+	<update id="stepUpdate" parameterType="QnaDTO">
+		update qna set step=step+1
+		where ref = #{ref} and step>#{step}
+	</update>
+
 	<insert id="add" parameterType="QnaDTO">
 		INSERT INTO QNA
 		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, QNA_SEQ.CURRVAL, 0, 0)
@@ -30,14 +40,14 @@
 		</choose>
 
 		LIKE'%'||#{search}||'%'
-		ORDER BY NUM DESC
+		ORDER BY REF DESC, STEP ASC
 		) B
 		)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
 	<select id="detail" parameterType="QnaDTO" resultType="QnaDTO">
-		SELECT * FROM NOTICE WHERE NUM = #{num}
+		SELECT * FROM QNA WHERE NUM = #{num}
 	</select>
 	
 	<delete id="delete" parameterType="QnaDTO">

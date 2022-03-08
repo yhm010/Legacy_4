@@ -25,6 +25,24 @@ public class QnaController {
 	public String board() {
 		return "qna";
 	}
+	//댓글 폼 이동
+	@RequestMapping(value = "reply", method = RequestMethod.GET)
+	public ModelAndView reply(QnaDTO qnaDTO, ModelAndView mv) throws Exception{
+		mv.addObject("dto", qnaDTO); //부모글번호
+		mv.setViewName("board/reply");
+		return mv;
+	}
+	
+	// 댓글 db로 이동
+	@RequestMapping(value = "reply", method = RequestMethod.POST)
+	public ModelAndView reply(QnaDTO qnaDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaSevice.reply(qnaDTO);
+		
+		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
 	
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
 	public String detail(QnaDTO qnaDTO, Model model)throws Exception{

@@ -15,6 +15,14 @@ public class QnaDAO implements BoardDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.s1.board.qna.QnaDAO.";
+	
+	public int reply(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"reply", qnaDTO);
+	}
+	
+	public int stepUpdate(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"stepUpdate", qnaDTO);
+	}
 
 	@Override
 	public BoardDTO detail(BoardDTO boardDTO) throws Exception {

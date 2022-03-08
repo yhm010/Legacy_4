@@ -32,7 +32,6 @@
 		</form>
 
 	</div>
-			<tr>
 				<th>글 번호</th>
 				<th>글 제목</th>
 				<th>글 내용</th>
@@ -42,8 +41,13 @@
 			</tr>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td><a href="./detail?num=${dto.num}">${dto.num}</a></td>
-					<td>${dto.title}</td>
+					<td>${dto.num}</td>
+					<td>
+					<a href="./detail?num=${dto.num}">
+					<c:catch>
+						<c:forEach begin="1" end="${dto.depth}">&nbsp;</c:forEach>
+					</c:catch>
+					${dto.title}</a> </td>
 					<td>${dto.contents}</td>
 					<td>${dto.writer}</td>
 					<td>${dto.regdate}</td>
