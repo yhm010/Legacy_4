@@ -13,6 +13,9 @@
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
+	<div>
+		<img alt="" src="./resources/images/ABC.jfif">
+	</div>
 	<h1>index page</h1>
 	
 	<h3>${member.name}님환영합니다.

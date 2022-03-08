@@ -12,6 +12,8 @@
 	<h3>name :${dto.name}</h3>
 	<h3>phone :${dto.phone} </h3>
 	<h3>email :${dto.email} </h3>
+	<img alt="" src="">
+	
 	
 	<a href="./update?id=${dto.id}">update</a>
 
