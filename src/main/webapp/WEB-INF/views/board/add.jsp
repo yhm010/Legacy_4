@@ -11,12 +11,15 @@
 	<h1>${board} add Page</h1>
 	
 	<form action="./add" method="post">
-	Title : <input type="text" name="title">
+	Title : <input type="text" id="title" name="title">
+	Writer : <input type="text" id="writer" name="writer">
 	Contents: <textarea rows="0" cols="50" name="contents"></textarea>
 	Writer : <input type="text" name="writer">
 	
-	<button type="submit">ADD</button>
+	
+	<button type="button" id="but">ADD</button>
 	
 	</form>
+	<script type="text/javascript" src="../resources/js/add.js"></script>
 </body>
 </html>

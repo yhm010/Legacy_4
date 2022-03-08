@@ -73,9 +73,23 @@ public class BankbookController {
 	
 	//delete
 	@RequestMapping("delete")
-	public String delete(BankBookDTO bankBookDTO) throws Exception{
+	public String delete(BankBookDTO bankBookDTO, Model modle ) throws Exception{
 		int result = bankBookservice.delete(bankBookDTO);
-		return "redirect:./list";
+		// 조회가 성공하면 출력
+		// 조회가 실패하면  alert 으로 없는 번호입니다.
+		// 다시  list 로 이동
+		//common/result.jsp
+		
+		String view = "common/result";
+		
+		if(result==0) {
+			modle.addAttribute("path", "bankbook/list");
+			modle.addAttribute("message", "없는 번호 입니다");
+		}else {
+			modle.addAttribute("path", "./list");
+			modle.addAttribute("message", "삭제되었습니다");
+		}
+		return view;
 		
 	}
 
