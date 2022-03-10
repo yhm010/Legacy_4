@@ -35,5 +35,7 @@
 			<a href="./member/join">Join</a>
 		</c:if>
 	</div>
+	
+	<img alt="" src="./resources/upload/member/73a9e880-1bac-4f83-bf14-cf944e4b353d_B.jpg">
 </body>
 </html>

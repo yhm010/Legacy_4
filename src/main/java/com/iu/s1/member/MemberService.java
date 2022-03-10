@@ -17,12 +17,17 @@ public class MemberService {
 	private FileManager fileManager;
 	
 	public int join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
+		int result = memberDAO.join(memberDTO);
 		//1. 첨부파일을 하드디스크에 저장
-		
+		String fileName = fileManager.save(photo, "resources/upload/member/");
 		//2. 저장된 정보를 DB에 저장
-		fileManager.save(photo, "resources/upload/member/");
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setFileName(fileName);
+		memberFileDTO.setOriName(photo.getOriginalFilename());
+		result = memberDAO.addFile(memberFileDTO);
 		
-		return memberDAO.join(memberDTO);
+		return result; // memberDAO.join(memberDTO);
 	}
 	
 	public MemberDTO login(MemberDTO memberDTO) throws Exception{

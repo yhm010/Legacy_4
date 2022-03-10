@@ -5,6 +5,11 @@
     
 <mapper namespace="com.iu.s1.member.MemberDAO">
 
+	<insert id="addFile" parameterType="MemberFileDTO">
+		INSERT INTO MEMBERFILE (FILENUM, ID, FILENAME, ORINAME)
+		VALUES(FILE_SEQ.NEXTVAL, #{id}, #{fileName}, #{oriName})
+	</insert>
+
 	<insert id="join" parameterType="MemberDTO">
 	INSERT INTO MEMBER (ID, PW, NAME, PHONE, EMAIL)
 	VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
@@ -15,10 +20,27 @@
 	WHERE ID=#{id} AND PW=#{pw}
 	</select>
 	
-	<select id="mypage" parameterType="MemberDTO" resultType="MemberDTO">
-	SELECT id, name, phone, email FROM MEMBER
-	WHERE ID=#{id}
+	<select id="mypage" parameterType="MemberDTO" resultMap="mypageResult">
+	SELECT ID, M.NAME, M.PHONE, M.EMAIL, MF.FILENAME, MF.FILENAME, MF.ORINAME
+	FROM
+		MEMBER M
+			LEFT JOIN
+		MEMBERFILE MF
+		USING(ID)
+	WHERE ID = #{id}
 	</select>
+	
+	<resultMap type="MemberDTO" id="mypageResult">
+		<id column="id" property="id"/> <!-- PK -->
+		<result column="name" property="name"/> <!-- PK를 제외한 나머지 -->
+		<result column="phone" property="phone"/>
+		<result column="email" property="email"/>
+		<association property="memberFileDTO" javaType="com.iu.s1.member.MemberFileDTO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</association>
+	</resultMap>
 	
 	<update id="update" parameterType="memberDTO">
 	UPDATE MEMBER SET NAME=#{name}, PHONE=#{phone}, EMAIL=#{email}
