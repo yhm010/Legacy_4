@@ -5,6 +5,11 @@
     
 <mapper namespace="com.iu.s1.board.notice.NoticeDAO">
 
+	<insert id="addFile" parameterType="BoardFileDTO">
+		INSERT INTO NOTICEFILE (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+	</insert>
+
 	<select id="list" parameterType="Pager" resultType="NoticeDTO">
 		SELECT * FROM
 		(SELECT ROWNUM R, B.* FROM
@@ -31,13 +36,43 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
-	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO">
-		SELECT * FROM NOTICE WHERE NUM = #{num}
+	<select id="detail" parameterType="NoticeDTO" resultMap="detailResult">
+		SELECT N.*, NF.*
+	FROM
+    NOTICE N
+        LEFT OUTER JOIN
+    NOTICEFILE NF
+   		 ON N.NUM=NF.NUM
+	WHERE N.NUM=#{num}
 	</select>
 	
+	<resultMap type="NoticeDTO" id="detailResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="contents" property="contents"/>
+		<result column="regDate" property="regDate"/>
+		<result column="hit" property="hit"/>
+		<collection property="fileDTOs" javaType="List" ofType="NoticeFileDTO">
+		<id column="fileNum" property="fileNum"/>
+		<result column="fileName" property="fileName"/>
+		<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
+	
+	<!-- 1번방법 DAO, service 해야함 -->
+	<select id="seqNum" resultType="Long">
+		<!-- <SELECT MAX(num) FORM NOTICE> -->
+		SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+	</select>
+	
+	<!-- 2번방법 selectKey -->
 	<insert id="add" parameterType="NoticeDTO">
+		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO NOTICE
-		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0)
+		VALUES (#{num}, #{title}, #{contents}, #{writer}, sysdate, 0)
 	</insert>
 	
 	<delete id="delete" parameterType="NoticeDTO">

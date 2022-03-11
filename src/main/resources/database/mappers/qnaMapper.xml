@@ -5,6 +5,7 @@
      
 <mapper namespace="com.iu.s1.board.qna.QnaDAO">
 
+
 	<insert id="reply" parameterType="QnaDTO">
 		INSERT INTO QNA
 		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, #{ref}, #{step}, #{depth})
@@ -15,9 +16,17 @@
 		where ref = #{ref} and step>#{step}
 	</update>
 
+<insert id="addFile" parameterType="BoardFileDTO">
+		INSERT INTO QNAFILE (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+	</insert>
+	
 	<insert id="add" parameterType="QnaDTO">
+	<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO QNA
-		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, QNA_SEQ.CURRVAL, 0, 0)
+		VALUES (#{num}, #{title}, #{contents}, #{writer}, sysdate, 0, QNA_SEQ.CURRVAL, 0, 0)
 	</insert>
 	
 	<select id="list" parameterType="Pager" resultType="QnaDTO">
@@ -46,9 +55,32 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
-	<select id="detail" parameterType="QnaDTO" resultType="QnaDTO">
-		SELECT * FROM QNA WHERE NUM = #{num}
+	<select id="detail" parameterType="QnaDTO" resultMap="detailResult">
+		SELECT Q.*, QF.*
+FROM
+    QNA Q
+        LEFT OUTER JOIN
+    QNAFILE QF
+    ON Q.NUM=QF.NUM
+WHERE Q.NUM=#{num}
 	</select>
+
+	<resultMap type="QnaDTO" id="detailResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="contents" property="contents"/>
+		<result column="regDate" property="regDate"/>
+		<result column="hit" property="hit"/>
+		<result column="fef" property="fef"/>
+		<result column="step" property="step"/>
+		<result column="depth" property="depth"/>
+		<collection property="fileDTOs" javaType="List" ofType="QnaFileDTO">
+		<id column="fileNum" property="fileNum"/>
+		<result column="fileName" property="fileName"/>
+		<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 	
 	<delete id="delete" parameterType="QnaDTO">
 		DELETE QNA WHERE NUM = #{num}

@@ -10,14 +10,19 @@
 <body>
 	<h1>${board} add Page</h1>
 	
-	<form action="./add" method="post">
+	<form action="./add" method="post" enctype="multipart/form-data">
 	Title : <input type="text" id="title" name="title">
 	Writer : <input type="text" id="writer" name="writer">
 	Contents: <textarea rows="0" cols="50" name="contents"></textarea>
-	Writer : <input type="text" name="writer">
+	
+	<div>
+		<input type="file" name="files">
+		<input type="file" name="files">
+		<input type="file" name="files">
+	</div>
 	
 	
-	<button type="button" id="but">ADD</button>
+	<button type="submit" id="but">ADD</button>
 	
 	</form>
 	<script type="text/javascript" src="../resources/js/add.js"></script>

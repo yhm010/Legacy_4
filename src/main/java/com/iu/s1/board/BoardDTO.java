@@ -4,17 +4,17 @@ import java.sql.Date;
 
 public class BoardDTO {
 	
-	private long num;	
+	private Long num;	
 	private String title;
 	private String contents;
 	private String writer;
-	private Date regdate;
-	private long hit;
+	private Date regDate;
+	private Long hit;
 	
-	public long getNum() {
+	public Long getNum() {
 		return num;
 	}
-	public void setNum(long num) {
+	public void setNum(Long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -35,18 +35,21 @@ public class BoardDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-	public long getHit() {
+	public Long getHit() {
 		return hit;
 	}
-	public void setHit(long hit) {
+	public void setHit(Long hit) {
 		this.hit = hit;
 	}
+	
+	
+	
 	
 	
 	

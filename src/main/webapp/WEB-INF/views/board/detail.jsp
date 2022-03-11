@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
 <body>
 	<h1>${board} detail Page</h1>
 	
@@ -14,8 +13,14 @@
 	<h3>Title : ${dto.title}</h3>
 	<h3>Contents : ${dto.contents} </h3>
 	<h3>Writer : ${dto.writer}</h3>
-	<h3>RegDate : ${dto.regdate}</h3>
+	<h3>RegDate : ${dto.regDate}</h3>
 	<h3>Hit : ${dto.hit} </h3>
+	
+	<div>
+		<c:forEach items="${dto.fileDTOs}" var="f">
+			<a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a>
+		</c:forEach>
+	</div>
 	
 	<a href="./list">List</a>
 	<a href="./update?num=${dto.num}">Update</a>
