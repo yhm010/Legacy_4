@@ -24,21 +24,17 @@ public class BankBookservice {
 	
 	//detail
 	public BankBookDTO detail(BankBookDTO bankBookDTO) throws Exception{
-		
 		return bankBookDAO.detail(bankBookDTO);
 	}
 	
 	//list
-	public List<BankBookDTO> list(Pager pager) throws Exception {
-		
+	public List<BankBookDTO> list(Pager pager) throws Exception {		
 		// 결론 : DAO 메서드 호출 전에 전처리 작업
 		pager.makeRow();
-		
 		Long totalCount= bankBookDAO.total(pager);
 		pager.makeNum(totalCount);
 		// 호출 후 후처리 작업
 		List<BankBookDTO> ar = bankBookDAO.list(pager);
-		
 		return ar;
 	}
 	
