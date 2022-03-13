@@ -18,7 +18,7 @@ public class BankbookController {
 	@Autowired
 	private BankBookservice bankBookservice;
 	
-	//update
+	//update DB 입력
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(BankBookDTO bankBookDTO) throws Exception{
 //		System.out.println(bankBookDTO.getBookNumber());
@@ -30,7 +30,7 @@ public class BankbookController {
 		return "redirect:./list";
 		
 	}
-	
+	// 폼 입력
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public void update(BankBookDTO bankBookDTO, Model model) throws Exception{
 		bankBookDTO = bankBookservice.detail(bankBookDTO);
