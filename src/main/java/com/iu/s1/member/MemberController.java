@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.HttpServerErrorException;
@@ -24,6 +25,24 @@ import com.iu.s1.bankbook.BankBookDTO;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	
+	@ModelAttribute("board")
+	public String getBoard() {
+		return "member";
+	}
+	
+	//filedown
+	@RequestMapping(value = "photoDown", method = RequestMethod.GET)
+	public ModelAndView fileDown(MemberFileDTO memberFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("fileDown");
+		
+		memberFileDTO = memberService.detailFile(memberFileDTO);
+		
+		mv.addObject("file", memberFileDTO);
+		
+		return mv;
+	}
 	
 	//update (폼용)
 	@RequestMapping(value = "update", method = RequestMethod.GET)

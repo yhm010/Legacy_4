@@ -16,6 +16,10 @@ public class MemberService {
 	@Autowired
 	private FileManager fileManager;
 	
+	public MemberFileDTO detailFile(MemberFileDTO memberFileDTO)throws Exception{
+		return memberDAO.detailFile(memberFileDTO);
+	}
+	
 	public int join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
 		int result = memberDAO.join(memberDTO);
 		//1. 첨부파일을 하드디스크에 저장

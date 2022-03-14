@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s1.board.BoardDTO;
 import com.iu.s1.board.qna.QnaDTO;
+import com.iu.s1.member.MemberFileDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
@@ -20,6 +21,16 @@ import com.iu.s1.util.Pager;
 public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
+		
+		//filedown
+		@RequestMapping(value = "fileDown", method = RequestMethod.GET)
+		public ModelAndView fileDown(NoticeFileDTO noticeFileDTO)throws Exception{
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("fileDown");
+			noticeFileDTO = noticeService.detailFile(noticeFileDTO);
+			mv.addObject("file", noticeFileDTO);
+			return mv;
+		}
 	
 	@ModelAttribute("board")
 	public String board() {

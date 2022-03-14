@@ -5,6 +5,11 @@
     
 <mapper namespace="com.iu.s1.member.MemberDAO">
 
+	<select id="detailFile" parameterType="MemberFileDTO" resultType="MemberFileDTO">
+		SELECT * FROM MEMBERFILE
+		WHERE FILENUM=#{fileNum}
+	</select>
+
 	<insert id="addFile" parameterType="MemberFileDTO">
 		INSERT INTO MEMBERFILE (FILENUM, ID, FILENAME, ORINAME)
 		VALUES(FILE_SEQ.NEXTVAL, #{id}, #{fileName}, #{oriName})
@@ -21,7 +26,7 @@
 	</select>
 	
 	<select id="mypage" parameterType="MemberDTO" resultMap="mypageResult">
-	SELECT ID, M.NAME, M.PHONE, M.EMAIL, MF.FILENAME, MF.FILENAME, MF.ORINAME
+	SELECT ID, M.NAME, M.PHONE, M.EMAIL, MF.FILENAME, MF.FILENUM, MF.ORINAME
 	FROM
 		MEMBER M
 			LEFT JOIN
