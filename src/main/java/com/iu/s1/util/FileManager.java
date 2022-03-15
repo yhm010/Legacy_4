@@ -17,6 +17,14 @@ public class FileManager {
 	@Autowired
 	private ServletContext servletContext;
 	
+	public boolean remove(String path, String fileName)throws Exception{
+		//파일을 HDD에서 삭제
+		//저장된폴더명, 저장된 파일명 필요
+		path = servletContext.getRealPath(path);
+		File file = new File(path, fileName); // 파일이 없으면 실행이 안됨
+		return file.delete();
+	}
+	
 	public String save(MultipartFile multipartFile, String path)throws Exception{
 		//파일저장은 톰캣이 아니라 os(운영체제)에서 저장
 		//path = /resources/upload/member/
