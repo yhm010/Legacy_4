@@ -18,8 +18,8 @@
 	
 	<div>
 		<c:forEach items="${dto.fileDTOs}" var="f">
-		<%-- <a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a> --%> // 사진보이기
-		<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a> // 파일다운
+		<%-- <a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a> --%>
+		<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
 		</c:forEach>
 	</div>
 	
