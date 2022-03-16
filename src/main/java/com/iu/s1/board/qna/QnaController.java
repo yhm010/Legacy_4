@@ -92,7 +92,7 @@ public class QnaController {
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public String update(QnaDTO qnaDTO, Model model) throws Exception {
 		BoardDTO boardDTO = qnaSevice.detail(qnaDTO);
-		model.addAttribute("dto", qnaDTO);
+		model.addAttribute("dto", boardDTO);
 		return "board/update";
 	}
 	
