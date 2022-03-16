@@ -40,7 +40,7 @@
 		<mapping path="/qna/update"/>
 		<mapping path="/qna/delete"/> -->
 		<mapping path="/qna/*"/>
-		<exclude-mapping path="/qna/list"/>
+		<exclude-mapping path="/qna/list"/><!-- 이것만 제외하고! -->
 		<beans:bean class="com.iu.s1.interceptor.LoginInterceptor"></beans:bean>
 		</interceptor>
 	</interceptors>
