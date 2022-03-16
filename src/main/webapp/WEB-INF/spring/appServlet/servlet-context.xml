@@ -46,8 +46,7 @@
 
 		<interceptor>
 			<mapping path="/qna/delete" />
-			<beans:bean
-				class="com.iu.s1.interceptor.WriterInterceptor"></beans:bean>
+			<beans:ref bean="writerInterceptor"/>
 		</interceptor>
 
 		<interceptor>
