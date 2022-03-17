@@ -15,10 +15,18 @@
 	Writer : <input type="text" id="writer" name="writer" value="${member.id}"readonly>
 	Contents: <textarea rows="0" cols="50" name="contents"></textarea>
 	
+	<div id="fileResult">
+		<!--
+			<div>
+				<input type="file" name="files"><button type="button">DEL</button>
+			</div>
+		<input type="file" name="files">
+		<input type="file" name="files">
+	-->
+	</div>
 	<div>
-		<input type="file" name="files">
-		<input type="file" name="files">
-		<input type="file" name="files">
+		<button type="button" id="fileAdd">FileAdd</button>
+
 	</div>
 	
 	
@@ -26,5 +34,6 @@
 	
 	</form>
 	<script type="text/javascript" src="../resources/js/add.js"></script>
+	<script src="../resources/js/file.js"></script>
 </body>
 </html>
