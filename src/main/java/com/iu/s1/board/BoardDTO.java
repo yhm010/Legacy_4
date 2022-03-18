@@ -8,7 +8,7 @@ public class BoardDTO {
 	private String title;
 	private String contents;
 	private String writer;
-	private Date regDate;
+	private Date regDate; //년-월-일, 년/월/일 '1999-01-01' -> DB가 날짜로 인식
 	private Long hit;
 	
 	public Long getNum() {
