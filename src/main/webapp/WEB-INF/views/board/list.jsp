@@ -13,9 +13,8 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="table-container">
-		<h1>${board} List Page</h1>
+		<h1 class="title">${board} List Page</h1>
 	</div>
-	<table class="table-basic">
 
 		<!--검색 창-->
 		<div>
@@ -31,6 +30,8 @@
 			</form>
 
 		</div>
+			<table class="table-basic">
+			<tr>
 		<th>글 번호</th>
 		<th>글 제목</th>
 		<th>글 내용</th>
@@ -58,7 +59,7 @@
 		
 	</table>
 
-	<div>
+	</div>
 
 		<c:if test="${pager.pre}">
 			<a href="./list?page=${pager.startNum-1}">PREVIEW</a>

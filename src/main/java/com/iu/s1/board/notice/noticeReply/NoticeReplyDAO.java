@@ -21,5 +21,9 @@ public class NoticeReplyDAO {
 	public List<NoticeReplyDTO> list(NoticeReplyDTO noticeReplyDTO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list", noticeReplyDTO);
 	}
+	
+	public int delete(NoticeReplyDTO noticeReplyDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete", noticeReplyDTO);
+	}
 
 }

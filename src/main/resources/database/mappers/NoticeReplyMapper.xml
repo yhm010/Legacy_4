@@ -14,5 +14,9 @@
 		WHERE NUM = #{num}
 		ORDER BY REPLYNUM DESC
 	</select>
+	
+	<delete id="delete" parameterType="NoticeReplyDTO">
+		DELETE NOTICEREPLY WHERE REPLYNUM=#{replyNum}
+	</delete>
 
 </mapper>

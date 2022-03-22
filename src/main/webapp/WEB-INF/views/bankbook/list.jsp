@@ -50,7 +50,7 @@
 			</c:forEach>
 	</table>
 
-	<div>
+	</div>
 	
 	<c:if test="${pager.pre}">
 		<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
