@@ -18,5 +18,9 @@
 	<delete id="delete" parameterType="NoticeReplyDTO">
 		DELETE NOTICEREPLY WHERE REPLYNUM=#{replyNum}
 	</delete>
-
+	
+	<update id="update" parameterType="NoticeReplyDTO">
+		UPDATE NOTICEREPLY SET CONTENTS=#{contents}
+		WHERE REPLYNUM=#{replyNum}
+	</update>
 </mapper>

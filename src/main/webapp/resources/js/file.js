@@ -64,3 +64,47 @@ fileResult.addEventListener("click", function(event){
     }
 
 });
+
+//------------------------------------------------
+//콘솔에 각각의 fileNum 출력
+const fileDeleteBtn = document.querySelectorAll(".fileDeleteBtn");
+const files = document.querySelector("#files");
+
+files.addEventListener("click", function(event){
+    if(event.target.classList.contains("fileDeleteBtn")){
+
+        let check = confirm("삭제시 복구가 불가능합니다. 정말 삭제 하시겠습니까?")
+
+        if (!check){
+            return;
+        }
+
+        let fileNum = event.target.getAttribute("data-fileNum");
+
+        //ajax 파라미터 : fileNum 메서드형식 :  POST URL : fileDelete, Controller : fileDelete
+
+        let xhttp = new XMLHttpRequest();
+        
+        xhttp.open("POST", "./fileDelete");
+
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        xhttp.send("fileNum="+fileNum);
+
+        //응답 처리
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                console.log(this.responseText);
+                let result = this.responseText.trim();
+                if(result == '1'){
+                    console.log("file 삭제");
+                    event.target.parentNode.remove();
+                }else{
+                   
+                 }
+            }
+        }
+       
+    }
+
+})

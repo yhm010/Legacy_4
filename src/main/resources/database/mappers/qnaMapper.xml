@@ -5,6 +5,10 @@
      
 <mapper namespace="com.iu.s1.board.qna.QnaDAO">
 
+<delete id="fileDelete" parameterType="QnafileDTO">
+	DELETE QNAFILE WHERE FILENUM = #{fileNum}
+</delete>
+
 <select id="listFile" parameterType="BoardDTO" resultType="QnaFileDTO">
 	SELECT * FROM QNAFILE
 	WHERE NUM = #{num}

@@ -51,5 +51,18 @@ public class NoticeReplyController {
 		mv.addObject("result", result);
 		return mv;
 	}
+	@PostMapping("update")
+	public ModelAndView update(NoticeReplyDTO noticeReplyDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(noticeReplyDTO.getContents());
+		System.out.println(noticeReplyDTO.getReplyNum());
+		int result = noticeReplyService.update(noticeReplyDTO);
+		
+		System.out.println(result);
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		
+		return mv;
+	}
 
 }

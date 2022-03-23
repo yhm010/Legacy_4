@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s1.board.BoardDTO;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.board.BoardService;
 import com.iu.s1.board.notice.NoticeFileDTO;
 import com.iu.s1.util.FileManager;
@@ -17,6 +18,11 @@ public class QnaSevice implements BoardService {
 	private QnaDAO qnaDAO;
 	@Autowired
 	private FileManager fileManager;
+	
+	public int fileDelete(QnaFileDTO qnafileDTO)throws Exception{
+		//HDD에 파일을 삭제 코드 작성 (하드디스크, 테이블 다 삭제해야함)
+		return qnaDAO.fileDelete(qnafileDTO);
+	}
 	
 	public QnaFileDTO detailFile(QnaFileDTO qnaFileDTO) throws Exception{
 		return qnaDAO.detailFile(qnaFileDTO);

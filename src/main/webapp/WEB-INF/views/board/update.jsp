@@ -16,8 +16,24 @@
 	Contents: <textarea rows="0" cols="50" name="contents" value="${dto.contents}"></textarea>
 	Writer : <input type="text" name="writer" value="${dto.writer}" disabled>
 	
-	<button type="submit">ADD</button>
+	<div id="files">
+	<c:forEach items="${dto.fileDTOs}" var="f">	
+		<div>
+			${f.oriName} <button type="button" data-fileNum="${f.fileNum}" class="fileDeleteBtn">X</button>
+		</div>
+	</c:forEach>
+	</div>
+	
+	<div id="fileResult"></div>
+	
+	<div>
+		<button type="button" id="fileAdd">FileAdd</button>
+		
+	</div>
+	
+	<button type="submit">UPDATE</button>
 	
 	</form>
+	<script type="text/javascript" src="../resources/js/file.js"></script>
 </body>
 </html>
