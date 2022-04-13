@@ -1,5 +1,7 @@
 package com.iu.s1.board.notice.noticeReply;
 
+import java.sql.Date;
+
 import javax.xml.crypto.Data;
 
 public class NoticeReplyDTO {
@@ -8,7 +10,7 @@ public class NoticeReplyDTO {
 	private Long num;
 	private String writer;
 	private String contents;
-	private Data regDate;
+	private Date regDate;
 	
 	public Long getReplyNum() {
 		return replyNum;
@@ -34,12 +36,13 @@ public class NoticeReplyDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Data getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Data regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+
 	
 	
 
